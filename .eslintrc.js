@@ -12,20 +12,33 @@ module.exports = {
     ecmaVersion: 2020
   },
   rules: {
+    /**
+     * module eslint rules
+     * author: 曾品斯
+     * date： 2021-04-17
+     * desc: eslint rules 说明
+     * params: "off" or 0 - 关闭规则
+     *        "warn" or 1 - 将规则视为一个警告（不会影响退出码）
+     *        "error" or 2 - 将规则视为一个错误 (退出码为1)
+     * example: .....
+     */
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    // 新增的一些规则
     indent: ['off', 3],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['off', 'always'],
-
-    // 覆盖一些规则的配置
     'comma-dangle': ['error', 'always'],
     'no-cond-assign': ['error', 'always'],
     'space-before-function-paren': 'off',
     'comma-dangle': 'off',
-    'prefer-const': 'off'
+    'prefer-const': 'off',
+    'no-construct': 'off',
+    'padding-line-between-statements': 0,
+    'linebreak-style': 0,
+    'no-unused-vars': 0,
+    'lines-between-class-members': 0,
+    'ban-types': 'off'
 
     // eslint规则说明
     // eqeqeq: 0, // 不要求使用 === 和 !==

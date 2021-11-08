@@ -6,7 +6,7 @@ import store from './store'
 import './css/index.less'
 import './common/element'
 import 'element-ui/lib/theme-chalk/index.css';
-
+import '@/module.ts'
 Vue.config.productionTip = false
 
 new Vue({

@@ -4,5 +4,6 @@ module.exports = {
       warings: true,
       error: true
     }
-  }
+  },
+  lintOnSave: false
 }

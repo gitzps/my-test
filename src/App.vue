@@ -1,62 +1,15 @@
 <template>
   <div class="d-flex flex-column w-100 h-100">
     <div class="d-flex flex-row w-100 header">
-      <div
-        class="d-flex justify-content-center left align-items-center"
-        :class="{ collapse: isCollapse }"
-      >
+      <div class="d-flex justify-content-center left align-items-center">
         ZPS
       </div>
-      <div class="middle d-flex align-items-center justify-content-start">
-        <i
-          class="is-white font-size-22 cursor"
-          :class="{
-            'el-icon-s-fold': !isCollapse,
-            'el-icon-s-unfold': isCollapse
-          }"
-          @click="isOpen"
-        ></i>
-      </div>
+      <div class="middle d-flex align-items-center justify-content-start"></div>
       <div class="right"></div>
     </div>
     <div id="content" class="d-flex flex-row">
-      <el-menu
-        default-active="1-4-1"
-        class="el-menu-vertical-demo"
-        :collapse="isCollapse"
-      >
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title">分组一</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <span slot="title">选项4</span>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-          <i class="el-icon-document"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-      </el-menu>
-      <router-view />
+      <rightMenu></rightMenu>
+      <mainContent></mainContent>
     </div>
     <div class="content-bottom"></div>
   </div>
@@ -64,15 +17,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-@Component
+import rightMenu from '@/components/menu/menu.vue'
+import mainContent from '@/components/content/content.vue'
+@Component({
+  components: { rightMenu, mainContent }
+})
 export default class Test extends Vue {
-  private isCollapse: Boolean = false
   mounted() {
     let loading = this.$loading({})
     loading.close()
-  }
-  public isOpen() {
-    this.isCollapse = !this.isCollapse
   }
 }
 </script>
